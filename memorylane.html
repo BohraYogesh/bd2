@@ -523,6 +523,29 @@
     data-new-gr-c-s-check-loaded="14.1235.0"
     data-gr-ext-installed=""
   >
+
+  <body>
+
+<!-- ⭐ Background Music (Yahi lagana hai) -->
+<audio id="bgMusic" src="music4.mp3" loop autoplay></audio>
+
+<button id="musicToggle" class="btn" 
+style="
+position: fixed;
+bottom: 20px;
+left: 20px;
+z-index: 9999;
+padding: 0.8rem 1.2rem;
+background: linear-gradient(45deg, #ff6ec4, #7873f5);
+border-radius: 50px;
+box-shadow: 0 4px 15px rgba(255, 110, 196, 0.6);
+">
+🎵 Music On
+</button>
+
+<!-- Ab aage ka aapka pura page continue hoga… -->
+
+
     <div class="scrapbook-bg" bis_skin_checked="1"></div>
     <div class="confetti" id="confetti-container" bis_skin_checked="1">
       <div
@@ -2117,9 +2140,7 @@
       >
         <h1>Our Memory Lane</h1>
         <p>
-          A journey through the most incredible moments we've shared together.
-          Hover over each photo to see why these memories mean so much to me!
-          ✨💖
+          Our friendship started with a ‘Balam jalam’ moment, and even with the distance, it has grown into something truly special. The sweet, unexpected bond we built without ever meeting.✨💖
         </p>
       </div>
 
@@ -2545,6 +2566,28 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
 
     <script>
+
+
+      // ⭐ MUSIC AUTOPLAY + CONTROL (Yahi lagana hai)
+const bgMusic = document.getElementById("bgMusic");
+const musicToggle = document.getElementById("musicToggle");
+
+document.addEventListener("click", function () {
+  if (bgMusic.paused) {
+    bgMusic.play();
+  }
+}, { once: true });
+
+musicToggle.addEventListener("click", () => {
+  if (bgMusic.paused) {
+    bgMusic.play();
+    musicToggle.innerHTML = "🎵 Music On";
+  } else {
+    bgMusic.pause();
+    musicToggle.innerHTML = "⏸ Music Off";
+  }
+});
+
       // Register ScrollTrigger plugin
       gsap.registerPlugin(ScrollTrigger);
 

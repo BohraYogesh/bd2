@@ -533,6 +533,28 @@
     data-new-gr-c-s-check-loaded="14.1235.0"
     data-gr-ext-installed=""
   >
+
+  <!-- Background Music -->
+<audio id="bgMusic" src="music2.mp3" loop autoplay></audio>
+
+<button id="musicToggle" 
+style="
+position: fixed;
+bottom: 20px;
+left: 20px;
+z-index: 9999;
+padding: 10px 18px;
+background: linear-gradient(45deg, #ff6ec4, #7873f5);
+border-radius: 30px;
+color: #fff;
+border: none;
+font-size: 16px;
+cursor: pointer;
+box-shadow: 0 4px 15px rgba(255, 110, 196, 0.6);
+">
+🎵 Music On
+</button>
+
     <!-- Balloons and Confetti will be added by JavaScript -->
 
     <!-- Birthday Cake -->
@@ -675,6 +697,25 @@
       let candlesBlown = 0;
       const totalCandles = 5;
       let allCandlesBlown = false;
+
+      // MUSIC AUTOPLAY + CONTROL
+const bgMusic = document.getElementById("bgMusic");
+const musicToggle = document.getElementById("musicToggle");
+
+document.addEventListener("click", function () {
+  if (bgMusic.paused) bgMusic.play();
+}, { once: true });
+
+musicToggle.addEventListener("click", () => {
+  if (bgMusic.paused) {
+    bgMusic.play();
+    musicToggle.innerHTML = "🎵 Music On";
+  } else {
+    bgMusic.pause();
+    musicToggle.innerHTML = "⏸ Music Off";
+  }
+});
+
 
       // Initialize the page when it loads
       document.addEventListener("DOMContentLoaded", function () {
